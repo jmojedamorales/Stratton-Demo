@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Rename-Item -Path \"c:\\\\Users\\\\eamoj\\\\OneDrive\\\\Escritorio\\\\Stratton VS\\\\AppWebn definitiva\\\\WhatsApp Image 2026-05-19 at 17.32.10.jpeg\" -NewName \"laboratorio-fachada.jpeg\")"
+    ]
+  }
+}

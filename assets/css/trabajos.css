@@ -1,0 +1,278 @@
+/* ══════════════════════════════════════════════════════════════
+   TRABAJOS.CSS — Sección portfolio / trabajos:
+                  slider viewport, ps-track, ps-page,
+                  portfolio-item, portfolio-img, portfolio-overlay,
+                  portfolio-placeholder, ps-nav, ps-btn, ps-dots
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── TRABAJOS SECTION ─────────────────────────────────────── */
+#trabajos {
+  padding: 140px 0;
+  background: #0B0B0B;
+}
+
+/* ── TRABAJOS GRID (6 cuadros) ────────────────────────────── */
+.trabajos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 60px;
+  border: 1px solid rgba(212,175,55,0.08);
+}
+
+.trabajo-item {
+  aspect-ratio: 4/3;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: #0c0c0c;
+}
+
+.trabajo-item .portfolio-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s ease;
+  filter: brightness(0.88) saturate(0.9);
+}
+.trabajo-item:hover .portfolio-img {
+  transform: scale(1.05);
+  filter: brightness(1) saturate(1);
+}
+
+.trabajo-item--double .portfolio-img--1 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.6s ease;
+  opacity: 1;
+  filter: brightness(0.9) saturate(0.85);
+}
+.trabajo-item--double .portfolio-img--2 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.6s ease;
+  opacity: 0;
+  filter: brightness(0.9) saturate(0.85);
+}
+.trabajo-item--double:hover .portfolio-img--1 { opacity: 0; }
+.trabajo-item--double:hover .portfolio-img--2 { opacity: 1; }
+
+.trabajo-item:nth-child(2) .portfolio-img {
+  object-fit: cover;
+  transform: scale(1);
+}
+
+.trabajo-item {
+  -webkit-mask-image:
+    linear-gradient(to right,  transparent 0%, black 4%, black 96%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 4%, black 96%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right,  transparent 0%, black 4%, black 96%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 4%, black 96%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.trabajo-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 2px; width: 0;
+  background: var(--gold);
+  transition: width 0.5s ease;
+  z-index: 2;
+}
+.trabajo-item:hover::after { width: 100%; }
+
+/* ── PORTFOLIO SLIDER ─────────────────────────────────────── */
+.portfolio-slider-wrap {
+  margin-top: 60px;
+  position: relative;
+}
+
+.portfolio-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.ps-track {
+  display: flex;
+  width: 400%;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ps-page {
+  width: 25%;
+  display: flex;
+  gap: 10px;
+}
+
+/* ── DESKTOP: crossfade blur entre páginas ────────────────── */
+@media (min-width: 769px) {
+  .ps-track {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 320px;
+    transition: none;
+  }
+
+  .ps-page {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    filter: blur(16px);
+    transition: opacity 0.75s ease, filter 0.75s ease;
+    pointer-events: none;
+  }
+
+  .ps-page.active {
+    opacity: 1;
+    filter: blur(0px);
+    pointer-events: auto;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .ps-track { height: 260px; }
+}
+
+.portfolio-item {
+  flex: 1;
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: #0c0c0c;
+}
+
+.portfolio-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.5s ease;
+  filter: brightness(0.88) saturate(0.9);
+}
+.portfolio-item:hover .portfolio-img {
+  transform: scale(1.05);
+  filter: brightness(1) saturate(1);
+}
+
+.portfolio-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(192,192,192,0.1);
+  font-size: 0.53rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.portfolio-placeholder svg {
+  width: 32px; height: 32px;
+  stroke: currentColor; fill: none; stroke-width: 0.8;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.05) 55%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 22px 22px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+.portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+.portfolio-cat {
+  font-size: 0.52rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+.portfolio-name {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(0.95rem, 1.3vw, 1.2rem);
+  color: #fff;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.portfolio-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 2px; width: 0;
+  background: var(--gold);
+  transition: width 0.5s ease;
+  z-index: 2;
+}
+.portfolio-item:hover::after { width: 100%; }
+
+/* ── SLIDER NAVIGATION ────────────────────────────────────── */
+.ps-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  margin-top: 32px;
+}
+
+.ps-btn {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 2.2rem;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.35s;
+  padding: 0;
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+.ps-btn:hover  { opacity: 1; }
+.ps-btn.disabled { opacity: 0.1; pointer-events: none; }
+
+.ps-dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ps-dot {
+  width: 22px;
+  height: 1px;
+  background: rgba(192,192,192,0.2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.35s, width 0.35s;
+}
+.ps-dot.active {
+  background: var(--gold);
+  width: 42px;
+}

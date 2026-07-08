@@ -1,0 +1,172 @@
+/* ══════════════════════════════════════════════════════════════
+   SOBRE.CSS — Sección "Sobre mí": layout grid, imagen,
+               badge, valores, contenido de texto
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── SOBRE MÍ SECTION ─────────────────────────────────────── */
+#sobre {
+  padding: 140px 0;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+#sobre .section-title {
+  color: #111111;
+}
+
+#sobre::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 140px;
+  background: linear-gradient(180deg, var(--black), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sobre-bg-accent {
+  position: absolute;
+  top: -100px; right: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,0.05), transparent 70%);
+  pointer-events: none;
+}
+
+/* ── TEXT GRID: título izq / texto der ───────────────────── */
+.sobre-text-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 70px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.sobre-images-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sobre-images-col .sobre-image {
+  aspect-ratio: 3/4;
+}
+
+.sobre-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sobre-quote {
+  font-family: 'Cormorant', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-top: 12px;
+  padding-left: 16px;
+  border-left: 2px solid var(--gold);
+}
+
+/* ── FILA DE DOS IMÁGENES ─────────────────────────────────── */
+.sobre-images-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* ── IMAGE WRAP ───────────────────────────────────────────── */
+.sobre-image-wrap {
+  position: relative;
+}
+
+/* Landscape slot */
+.sobre-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #1a1a1a, #111);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(212,175,55,0.15);
+}
+.sobre-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.85;
+  transition: opacity 0.5s, transform 0.7s;
+}
+.sobre-image:hover img { opacity: 1; transform: scale(1.03); }
+
+/* Placeholder text when no image */
+.sobre-image-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--silver);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.4;
+}
+.sobre-image-placeholder svg {
+  width: 48px;
+  height: 48px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1;
+}
+
+.sobre-image-border {
+  position: absolute;
+  bottom: -20px; right: -20px;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  border: 1px solid rgba(212,175,55,0.2);
+  pointer-events: none;
+}
+
+/* ── BADGE ────────────────────────────────────────────────── */
+.sobre-badge {
+  position: absolute;
+  bottom: 30px; left: -30px;
+  background: #111111;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 2;
+}
+.sobre-badge-num {
+  font-family: 'Cormorant', serif;
+  font-size: 2.2rem;
+  color: var(--gold);
+  line-height: 1;
+}
+.sobre-badge-text { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #444444; }
+
+/* ── CONTENT ──────────────────────────────────────────────── */
+.sobre-title {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: #111111;
+}
+
+.sobre-text {
+  color: #444444;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  line-height: 1.85;
+}
+

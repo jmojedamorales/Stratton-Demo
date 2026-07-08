@@ -1,0 +1,8 @@
+{
+  "name": "stratton-dental-studios",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "googleapis": "^144.0.0"
+  }
+}

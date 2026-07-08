@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stratton Dental Studios · Estética Dental Premium</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets (order matters) -->
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/navbar.css" />
+  <link rel="stylesheet" href="assets/css/hero.css" />
+  <link rel="stylesheet" href="assets/css/sobre.css" />
+  <link rel="stylesheet" href="assets/css/proceso.css" />
+  <link rel="stylesheet" href="assets/css/trabajos.css" />
+  <link rel="stylesheet" href="assets/css/partners.css" />
+  <link rel="stylesheet" href="assets/css/contacto.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
+  <link rel="stylesheet" href="assets/css/lightbox.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+<body>
+
+<!-- CURSOR GLOW -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">&#215;</button>
+  <button class="lb-nav lb-prev" onclick="lbNav(-1)">&#8592;</button>
+  <img id="lb-img" src="" alt="" />
+  <button class="lb-nav lb-next" onclick="lbNav(1)">&#8594;</button>
+  <div class="lb-caption" id="lb-caption"></div>
+</div>
+
+<!-- NAV BACKDROP -->
+<div class="nav-backdrop" id="navBackdrop" onclick="closeMobileNav()"></div>
+
+<!-- MOBILE NAV -->
+<nav class="nav-mobile" id="mobileNav">
+  <a href="#sobre"    data-num="01" onclick="closeMobileNav()">Sobre nosotros</a>
+  <a href="#trabajos" data-num="02" onclick="closeMobileNav()">Trabajos</a>
+  <a href="#proceso"  data-num="03" onclick="closeMobileNav()">Especialidades</a>
+  <a href="#partners" data-num="04" onclick="closeMobileNav()">Partners</a>
+  <a href="#contacto" data-num="05" onclick="closeMobileNav()">Contacto</a>
+  <div class="nav-mobile-footer">
+    <span>Stratton Dental Studios · <strong>Málaga</strong></span>
+  </div>
+</nav>
+
+<!-- TOAST -->
+<div class="toast" id="toast">Mensaje enviado. Nos ponemos en contacto pronto.</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- NAVBAR                                                       -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="assets/images/logo_sin_fondo.png" alt="Stratton Dental Studios" />
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">STRATTON</span>
+          <span class="nav-logo-sub">DENTAL</span>
+          <span class="nav-logo-studio">STUDIO</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre nosotros</a></li>
+        <li><a href="#trabajos">Trabajos</a></li>
+        <li><a href="#proceso">Especialidades</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#contacto" class="nav-cta">Colaborar</a></li>
+      </ul>
+
+      <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- HERO                                                         -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-image-slot"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-corner hero-corner-tl"></div>
+  <div class="hero-corner hero-corner-br"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-line"></span>
+        Laboratorio de Precisión · Estética Dental Premium
+      </div>
+
+      <h1 class="hero-title">
+        Donde la ciencia<br/>se une al <em>arte.</em>
+      </h1>
+
+      <p class="hero-subtitle">
+        Especialistas en estética dental y tecnología CAD-CAM.
+        Creamos sonrisas perfectas con precisión digital.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="customer-login.html" class="btn-primary">
+          <span>&#9670;</span>
+          <span>Área de clientes</span>
+        </a>
+        <a href="#trabajos" class="btn-secondary">
+          <span>Ver trabajos</span>
+          <span>&#8599;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
+    <span>Descubrir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SOBRE MÍ                                                     -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="sobre">
+  <div class="sobre-bg-accent"></div>
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="tag" style="justify-content:center; display:flex;">Sobre nosotros</div>
+      <h2 class="section-title">Excelencia en cada <span class="gold">detalle</span></h2>
+    </div>
+    <!-- Imágenes izquierda / Texto derecha -->
+    <div class="sobre-text-grid reveal">
+
+      <!-- Columna izquierda: dos imágenes apiladas -->
+      <div class="sobre-images-col">
+        <div class="sobre-image">
+          <img src="assets/images/laboratorio-fachada.jpeg" alt="Fachada del Laboratorio Dental" />
+        </div>
+      </div>
+
+      <!-- Columna derecha: título + texto -->
+      <div class="sobre-text-col">
+        <h2 class="sobre-title">Más de 25 años creando sonrisas en toda España</h2>
+        <p class="sobre-text">
+          Con más de 25 años de trayectoria profesional, en Stratton Dental Studio hemos recorrido un largo camino trabajando en diversas ciudades españolas, consolidando nuestra experiencia y perfeccionando cada técnica hasta alcanzar los más altos estándares de calidad en el sector.
+        </p>
+        <p class="sobre-text">
+          Ahora nos implantamos en la <strong>Costa del Sol, Málaga</strong>, trayendo toda esa experiencia acumulada a una de las zonas con mayor demanda de estética dental de alta gama. Combinamos la artesanía tradicional con las últimas innovaciones en tecnología CAD/CAM para ofrecer restauraciones de precisión excepcional.
+        </p>
+        <p class="sobre-text">
+          Nuestro equipo de protésicos dentales altamente cualificados trabaja con los materiales más avanzados del mercado, garantizando resultados estéticos y funcionales que superan las expectativas de los profesionales más exigentes.
+        </p>
+        <p class="sobre-quote"><em>"La perfección está en los detalles"</em></p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PROCESO                                                      -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="proceso">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="tag" style="justify-content:center; display:flex;">Especialidades</div>
+    </div>
+    <div class="proceso-grid reveal">
+      <div class="proceso-item">
+        <div class="proceso-num">01</div>
+        <div class="proceso-title">Estética Dental</div>
+      </div>
+      <div class="proceso-item">
+        <div class="proceso-num">02</div>
+        <div class="proceso-title">CAD-CAM</div>
+      </div>
+      <div class="proceso-item">
+        <div class="proceso-num">03</div>
+        <div class="proceso-title">Implantes</div>
+        <ul class="proceso-list">
+          <li>Coronas y puentes</li>
+          <li>Híbridas</li>
+          <li>Soluciones personalizadas</li>
+        </ul>
+      </div>
+      <div class="proceso-item">
+        <div class="proceso-num">04</div>
+        <div class="proceso-title">Prótesis Fijas</div>
+        <ul class="proceso-list">
+          <li>Zirconio Monolítico</li>
+          <li>Zirconio estratificado</li>
+          <li>Zirconio + titanio</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- TRABAJOS                                                     -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="trabajos">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="tag" style="justify-content:center; display:flex;">Portfolio</div>
+      <h2 class="section-title">Trabajos <span class="gold">seleccionados</span></h2>
+      <p class="section-sub">Cada pieza cuenta una historia de perfección técnica y sensibilidad estética.</p>
+    </div>
+
+    <div class="trabajos-grid reveal">
+      <div class="trabajo-item trabajo-item--double" onclick="openLightbox(this)">
+        <img class="portfolio-img portfolio-img--1" src="assets/images/foto1 cuadro1.jpeg" alt="Trabajo 1" />
+        <img class="portfolio-img portfolio-img--2" src="assets/images/foto2 cuadro1.jpeg" alt="Trabajo 1" />
+        <div class="portfolio-overlay">
+          <span class="portfolio-cat">Estética</span>
+          <span class="portfolio-name">Trabajo 1</span>
+        </div>
+      </div>
+      <div class="trabajo-item" onclick="openLightbox(this)">
+        <img class="portfolio-img" src="assets/images/foto1 cuadro2.jpeg" alt="Trabajo 2" />
+        <div class="portfolio-overlay">
+          <span class="portfolio-cat">Implantes</span>
+          <span class="portfolio-name">Trabajo 2</span>
+        </div>
+      </div>
+      <div class="trabajo-item" onclick="openLightbox(this)">
+        <!-- <img class="portfolio-img" src="assets/images/foto3.jpg" alt=""> -->
+        <div class="portfolio-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="12" r="2.5"/><path d="M21 15l-5-5-4 4-2-2-4 4"/></svg>
+          <span>Añadir imagen</span>
+        </div>
+        <div class="portfolio-overlay">
+          <span class="portfolio-cat">Prótesis</span>
+          <span class="portfolio-name">Trabajo 3</span>
+        </div>
+      </div>
+      <div class="trabajo-item" onclick="openLightbox(this)">
+        <!-- <img class="portfolio-img" src="assets/images/foto4.jpg" alt=""> -->
+        <div class="portfolio-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="12" r="2.5"/><path d="M21 15l-5-5-4 4-2-2-4 4"/></svg>
+          <span>Añadir imagen</span>
+        </div>
+        <div class="portfolio-overlay">
+          <span class="portfolio-cat">CAD-CAM</span>
+          <span class="portfolio-name">Trabajo 4</span>
+        </div>
+      </div>
+      <div class="trabajo-item" onclick="openLightbox(this)">
+        <!-- <img class="portfolio-img" src="assets/images/foto5.jpg" alt=""> -->
+        <div class="portfolio-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="12" r="2.5"/><path d="M21 15l-5-5-4 4-2-2-4 4"/></svg>
+          <span>Añadir imagen</span>
+        </div>
+        <div class="portfolio-overlay">
+          <span class="portfolio-cat">Estética</span>
+          <span class="portfolio-name">Trabajo 5</span>
+        </div>
+      </div>
+      <div class="trabajo-item" onclick="openLightbox(this)">
+        <!-- <img class="portfolio-img" src="assets/images/foto6.jpg" alt=""> -->
+        <div class="portfolio-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="12" r="2.5"/><path d="M21 15l-5-5-4 4-2-2-4 4"/></svg>
+          <span>Añadir imagen</span>
+        </div>
+        <div class="portfolio-overlay">
+          <span class="portfolio-cat">Prótesis</span>
+          <span class="portfolio-name">Trabajo 6</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PARTNERS                                                     -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="partners">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="tag" style="justify-content:center; display:flex;">Confianza</div>
+      <h2 class="section-title">Clínicas <span class="gold">colaboradoras</span></h2>
+      <p class="section-sub">Trabajamos con las clínicas dentales más exigentes de toda la región.</p>
+    </div>
+
+    <div class="partners-trust reveal">
+      <div class="trust-item">
+        <div class="trust-num">500+</div>
+        <div class="trust-label">Clínicas activas</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">12.000+</div>
+        <div class="trust-label">Piezas fabricadas</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">25</div>
+        <div class="trust-label">Años de trayectoria</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">4,9★</div>
+        <div class="trust-label">Valoración media</div>
+      </div>
+    </div>
+
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carousel">
+        <!-- Original set -->
+        <div class="partner-card"><img src="assets/images/vita.jpeg"      alt="Vita"></div>
+        <div class="partner-card"><img src="assets/images/Ivoclar.jpeg"   alt="Ivoclar"></div>
+        <div class="partner-card"><img src="assets/images/denstply.jpeg"  alt="Dentsply"></div>
+        <div class="partner-card"><img src="assets/images/aidite.jpeg"    alt="Aidite"></div>
+        <div class="partner-card"><img src="assets/images/argen.jpeg"     alt="Argen"></div>
+        <div class="partner-card"><img src="assets/images/bredentt.jpeg"  alt="Bredent"></div>
+        <!-- Clone for seamless loop -->
+        <div class="partner-card" aria-hidden="true"><img src="assets/images/vita.jpeg"      alt=""></div>
+        <div class="partner-card" aria-hidden="true"><img src="assets/images/Ivoclar.jpeg"   alt=""></div>
+        <div class="partner-card" aria-hidden="true"><img src="assets/images/denstply.jpeg"  alt=""></div>
+        <div class="partner-card" aria-hidden="true"><img src="assets/images/aidite.jpeg"    alt=""></div>
+        <div class="partner-card" aria-hidden="true"><img src="assets/images/argen.jpeg"     alt=""></div>
+        <div class="partner-card" aria-hidden="true"><img src="assets/images/bredentt.jpeg"  alt=""></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- CONTACTO                                                     -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="contacto">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div class="contact-info reveal reveal-left">
+        <div class="tag">Contacto</div>
+        <h2 class="contact-title">
+          Iniciemos una<br/>
+          <span class="gold">colaboración.</span>
+        </h2>
+        <p class="contact-text">
+          Trabajamos con clínicas y profesionales que comparten nuestra exigencia por
+          la excelencia. Si buscas un laboratorio de referencia para tus casos
+          de alta estética, estamos aquí.
+        </p>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">&#9993;</div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value">hola@laboratorio-dental.es</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">&#9742;</div>
+            <div>
+              <div class="contact-item-label">Teléfono</div>
+              <div class="contact-item-value">+34 900 000 000</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">&#9873;</div>
+            <div>
+              <div class="contact-item-label">Ubicación</div>
+              <div class="contact-item-value">Málaga, España</div>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/34900000000" class="whatsapp-btn" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Contactar por WhatsApp
+        </a>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form reveal reveal-right">
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Nombre</label>
+              <input type="text" name="nombre" class="form-input" placeholder="Dr. García" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Clínica</label>
+              <input type="text" name="clinica" class="form-input" placeholder="Clínica Dental Premium" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email profesional</label>
+            <input type="email" name="email" class="form-input" placeholder="doctor@clinica.es" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Teléfono</label>
+            <input type="tel" name="telefono" class="form-input" placeholder="+34 600 000 000" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tipo de trabajo</label>
+            <div class="custom-select" id="customSelect">
+              <div class="custom-select-trigger" id="selectTrigger">
+                Selecciona una categoría
+                <span class="custom-select-arrow"></span>
+              </div>
+              <div class="custom-select-options" id="selectOptions">
+                <div class="custom-option" data-value="protesis">Prótesis fija · Circonio / Disilicato</div>
+                <div class="custom-option" data-value="carillas">Carillas estéticas</div>
+                <div class="custom-option" data-value="implantes">Prótesis sobre implantes</div>
+                <div class="custom-option" data-value="removible">Prótesis removible</div>
+                <div class="custom-option" data-value="ferulas">Férulas y ortodoncia</div>
+                <div class="custom-option" data-value="consulta">Consulta / Colaboración general</div>
+              </div>
+              <input type="hidden" name="tipo_trabajo" id="selectValue" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensaje</label>
+            <textarea name="mensaje" class="form-input" placeholder="Cuéntanos sobre el caso o la colaboración que tienes en mente..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Enviar solicitud</button>
+          <p class="form-note">Respondemos en menos de 24h · Trato completamente confidencial</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER (inside #contacto section as in original) -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">Stratton Dental Studios</div>
+          <div class="footer-tagline">Estética de Alta Gama</div>
+          <p class="footer-desc">
+            Fabricamos prótesis de precisión con tecnología digital y acabados
+            artesanales de excelencia. Tu referencia en estética dental premium.
+          </p>
+          <div class="footer-social">
+            <a class="social-link" href="#" aria-label="Instagram">in</a>
+            <a class="social-link" href="#" aria-label="LinkedIn">Li</a>
+            <a class="social-link" href="#" aria-label="Facebook">f</a>
+            <a class="social-link" href="#" aria-label="YouTube">&#9654;</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <ul class="footer-links">
+            <li><a href="#">Prótesis fija</a></li>
+            <li><a href="#">Carillas estéticas</a></li>
+            <li><a href="#">Implantología</a></li>
+            <li><a href="#">Prótesis removible</a></li>
+            <li><a href="#">Ortodoncia digital</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Laboratorio</h4>
+          <ul class="footer-links">
+            <li><a href="#sobre">Sobre nosotros</a></li>
+            <li><a href="#trabajos">Portfolio</a></li>
+            <li><a href="#proceso">Especialidades</a></li>
+            <li><a href="#partners">Partners</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2024 Stratton Dental Studios · Todos los derechos reservados</span>
+        <div class="footer-legal">
+          <a href="#">Política de privacidad</a>
+          <a href="#">Aviso legal</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- JAVASCRIPT — loaded at end of body                          -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<script src="assets/js/navbar.js"></script>
+<script src="assets/js/animations.js"></script>
+<script src="assets/js/portfolio.js"></script>
+<script src="assets/js/lightbox.js"></script>
+<script src="assets/js/contact.js"></script>
+<script src="assets/js/counters.js"></script>
+</body>
+</html>

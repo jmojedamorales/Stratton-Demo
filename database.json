@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": "USR001",
+      "username": "demo.clinica",
+      "email": "demo@clinica.es",
+      "password": "stratton2024",
+      "name": "Dr. García",
+      "initials": "DG",
+      "clinic": "Clínica Dental Premium",
+      "phone": "+34 600 000 000",
+      "since": "julio 2024"
+    },
+    {
+      "id": "USR002",
+      "username": "Jmom",
+      "email": "",
+      "password": "ola123",
+      "name": "Josema",
+      "initials": "J",
+      "clinic": "Josema clinica",
+      "phone": "651433910",
+      "since": "julio de 2026"
+    }
+  ],
+  "orders": [],
+  "notifications": []
+}

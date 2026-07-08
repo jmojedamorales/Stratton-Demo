@@ -1,0 +1,119 @@
+/* ══════════════════════════════════════════════════════════════
+   PARTNERS.CSS — Sección partners / clínicas colaboradoras:
+                  trust numbers, carousel track, partner cards,
+                  fade masks
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── PARTNERS SECTION ─────────────────────────────────────── */
+#partners {
+  padding: 120px 0;
+  background: linear-gradient(180deg, #0e0e0e 0%, #0B0B0B 100%);
+}
+
+/* ── TRUST NUMBERS ────────────────────────────────────────── */
+.partners-trust {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+.trust-item {
+  text-align: center;
+}
+.trust-num {
+  font-family: 'Cormorant', serif;
+  font-size: 2.5rem;
+  color: var(--gold);
+}
+.trust-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+/* ── CAROUSEL ─────────────────────────────────────────────── */
+.carousel-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.carousel-track {
+  display: flex;
+  gap: 2px;
+  animation: slide 26s linear infinite;
+}
+.carousel-track:hover { animation-play-state: paused; }
+.carousel-clone { display: contents; }
+
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.partner-card {
+  flex: 0 0 200px;
+  height: 90px;
+  border: 1px solid rgba(212,175,55,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255,255,255,0.02);
+}
+.partner-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(212,175,55,0.03);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.partner-card:hover { border-color: rgba(212,175,55,0.3); }
+.partner-card:hover::before { opacity: 1; }
+
+.partner-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: rgba(192,192,192,0.4);
+  transition: color 0.3s;
+  text-align: center;
+}
+.partner-card:hover .partner-logo-text { color: var(--gold); }
+
+.partner-card img {
+  max-width: 130px;
+  max-height: 52px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0.55) contrast(1.1);
+  transition: filter 0.4s ease;
+  display: block;
+}
+.partner-card:hover img {
+  filter: grayscale(0.1) brightness(1.05) sepia(0.25) saturate(1.4);
+}
+
+/* Fade masks */
+.carousel-wrap::before,
+.carousel-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.carousel-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--black), transparent);
+}
+.carousel-wrap::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--black), transparent);
+}

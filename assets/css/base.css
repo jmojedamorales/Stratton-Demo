@@ -1,0 +1,132 @@
+/* ══════════════════════════════════════════════════════════════
+   BASE.CSS — Reset, :root variables, utilities, scrollbar,
+              animaciones globales, cursor glow
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #0B0B0B;
+  --gold:    #D4AF37;
+  --gold-lt: #E8C96A;
+  --silver:  #C0C0C0;
+  --white:   #F8F8F8;
+  --glass:   rgba(255,255,255,0.06);
+  --glass-border: rgba(212,175,55,0.25);
+  --shadow-gold: 0 0 40px rgba(212,175,55,0.12);
+  --shadow-dark: 0 20px 60px rgba(0,0,0,0.5);
+  --radius: 2px;
+  --transition: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--gold); color: var(--black); }
+
+/* ── SCROLLBAR ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ── UTILITIES ────────────────────────────────────────────── */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+
+.serif { font-family: 'Cormorant', serif; }
+.garamond { font-family: 'Cormorant Garamond', serif; }
+
+.gold { color: var(--gold); }
+.silver { color: var(--silver); }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.tag::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ── REVEAL ANIMATIONS ────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.reveal-left  { transform: translateX(-40px); }
+.reveal.reveal-right { transform: translateX(40px); }
+.reveal.visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* ── GOLD LINE DIVIDER ────────────────────────────────────── */
+.divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 60px;
+}
+
+/* ── SECTION TRANSITIONS ──────────────────────────────────── */
+section {
+  position: relative;
+}
+section::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.12), transparent);
+  pointer-events: none;
+}
+
+/* ── GLOBAL KEYFRAMES ─────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── CURSOR ORO METÁLICO (desktop only) ──────────────────── */
+body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='20' viewBox='0 0 14 20'%3E%3Cpath d='M0 0L0 14L4 10L7 17L9 16L6 9L11 9Z' fill='%23d4af37' stroke='%233d2800' stroke-width='0.8' stroke-linejoin='round'/%3E%3Cpath d='M1 1L1 11' stroke='%23fff5b0' stroke-width='0.6' stroke-linecap='round' opacity='0.8'/%3E%3C/svg%3E") 0 0, auto;
+}
+
+.cursor-glow {
+  position: fixed;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(212,175,55,0.10) 0%,
+    rgba(184,134,11,0.04) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s, left 0.12s ease, top 0.12s ease;
+}

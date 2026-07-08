@@ -1,0 +1,252 @@
+/* ══════════════════════════════════════════════════════════════
+   CONTACTO.CSS — Sección contacto: grid layout, info panel,
+                  contact items, WhatsApp CTA, form, inputs,
+                  custom select dropdown, form submit button
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── CONTACTO SECTION ─────────────────────────────────────── */
+#contacto {
+  padding: 140px 0 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-bottom: 100px;
+}
+
+/* ── CONTACT INFO ─────────────────────────────────────────── */
+.contact-title {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+.contact-text {
+  color: var(--silver);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  margin-bottom: 40px;
+}
+
+.contact-items { display: flex; flex-direction: column; gap: 20px; }
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid rgba(212,175,55,0.1);
+  transition: border-color 0.3s;
+}
+.contact-item:hover { border-color: rgba(212,175,55,0.3); }
+.contact-item-icon {
+  width: 40px; height: 40px;
+  border: 1px solid rgba(212,175,55,0.3);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+.contact-item-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.contact-item-value { font-size: 0.9rem; color: var(--silver); }
+
+/* ── WHATSAPP CTA ─────────────────────────────────────────── */
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, #1a5c2e, #25D366);
+  color: white;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: 30px;
+  font-weight: 500;
+  transition: all 0.4s;
+}
+.whatsapp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.3);
+}
+
+/* ── FORM ─────────────────────────────────────────────────── */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+.form-label {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 10px;
+}
+.form-input {
+  width: 100%;
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(192,192,192,0.12);
+  color: var(--white);
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  outline: none;
+  transition: all 0.3s;
+  border-radius: var(--radius);
+}
+.form-input:focus {
+  border-color: var(--gold);
+  background: rgba(212,175,55,0.04);
+  box-shadow: 0 0 0 1px rgba(212,175,55,0.15);
+}
+.form-input::placeholder { color: rgba(192,192,192,0.3); }
+textarea.form-input { resize: vertical; min-height: 140px; }
+
+/* ── CUSTOM SELECT DROPDOWN ───────────────────────────────── */
+.custom-select {
+  position: relative;
+  user-select: none;
+}
+.custom-select-trigger {
+  width: 100%;
+  padding: 16px 44px 16px 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(192,192,192,0.12);
+  color: rgba(192,192,192,0.35);
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.3s, background 0.3s;
+  position: relative;
+}
+.custom-select-trigger.has-value { color: var(--white); }
+.custom-select.open .custom-select-trigger {
+  border-color: var(--gold);
+  background: rgba(212,175,55,0.04);
+  box-shadow: 0 0 0 1px rgba(212,175,55,0.15);
+}
+.custom-select-arrow {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 8px; height: 8px;
+  border-right: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  transform: translateY(-65%) rotate(45deg);
+  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+  flex-shrink: 0;
+}
+.custom-select.open .custom-select-arrow {
+  transform: translateY(-30%) rotate(225deg);
+}
+.custom-select-options {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0; right: 0;
+  background: #0f0f0f;
+  border: 1px solid rgba(212,175,55,0.2);
+  z-index: 500;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.4s cubic-bezier(0.76, 0, 0.24, 1),
+              opacity 0.3s ease;
+}
+.custom-select.open .custom-select-options {
+  max-height: 320px;
+  opacity: 1;
+  pointer-events: auto;
+  overflow-y: auto;
+}
+.custom-select-options::-webkit-scrollbar { width: 3px; }
+.custom-select-options::-webkit-scrollbar-track { background: #0f0f0f; }
+.custom-select-options::-webkit-scrollbar-thumb { background: var(--gold); }
+
+.custom-option {
+  padding: 14px 20px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--silver);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(212,175,55,0.05);
+  transition: background 0.2s, color 0.2s, padding-left 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.custom-option:last-child { border-bottom: none; }
+.custom-option::before {
+  content: '◆';
+  font-size: 0.4rem;
+  color: var(--gold);
+  opacity: 0;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+.custom-option:hover {
+  background: var(--gold);
+  color: var(--black);
+  padding-left: 24px;
+}
+.custom-option:hover::before { opacity: 1; }
+.custom-option.selected {
+  color: var(--gold);
+  background: rgba(212,175,55,0.06);
+}
+.custom-option.selected::before { opacity: 1; }
+
+/* ── FORM LAYOUT ──────────────────────────────────────────── */
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.form-submit {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, var(--gold), #B8962E);
+  color: var(--black);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s;
+  margin-top: 10px;
+}
+.form-submit::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s;
+}
+.form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,175,55,0.3); }
+.form-submit:hover::before { left: 100%; }
+
+.form-note {
+  font-size: 0.72rem;
+  color: rgba(192,192,192,0.4);
+  text-align: center;
+  margin-top: 14px;
+  letter-spacing: 0.08em;
+}

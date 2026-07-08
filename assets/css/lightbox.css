@@ -1,0 +1,78 @@
+/* ══════════════════════════════════════════════════════════════
+   LIGHTBOX.CSS — Lightbox modal y Toast notification
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── LIGHTBOX ─────────────────────────────────────────────── */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+#lightbox.open { display: flex; }
+#lightbox img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border: 1px solid rgba(212,175,55,0.2);
+}
+
+.lb-close {
+  position: absolute;
+  top: 24px; right: 28px;
+  font-size: 1.8rem;
+  color: var(--silver);
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.3s;
+}
+.lb-close:hover { color: var(--gold); }
+
+.lb-caption {
+  position: absolute;
+  bottom: 30px;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(212,175,55,0.1);
+  border: 1px solid var(--glass-border);
+  color: var(--gold);
+  padding: 16px 14px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.lb-nav:hover { background: rgba(212,175,55,0.25); }
+.lb-prev { left: 20px; }
+.lb-next { right: 20px; }
+
+/* ── TOAST ────────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 30px; right: 30px;
+  background: rgba(212,175,55,0.1);
+  border: 1px solid var(--gold);
+  backdrop-filter: blur(10px);
+  color: var(--gold);
+  padding: 16px 24px;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  z-index: 3000;
+  transform: translateX(150%);
+  transition: transform 0.4s ease;
+}
+.toast.show { transform: translateX(0); }
