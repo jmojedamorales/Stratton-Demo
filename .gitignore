@@ -1,2 +1,5 @@
 node_modules/
 credentials.json
+credentials.json.json
+database.json
+.claude/
