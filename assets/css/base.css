@@ -111,6 +111,63 @@ section::after {
   to   { opacity: 1; }
 }
 
+/* ── MODAL PRÓXIMAMENTE ───────────────────────────────────── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.modal-backdrop.modal-open {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal-box {
+  background: #111;
+  border: 1px solid var(--glass-border);
+  padding: 48px 56px;
+  text-align: center;
+  position: relative;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: var(--shadow-dark);
+}
+.modal-close {
+  position: absolute;
+  top: 16px; right: 20px;
+  background: none;
+  border: none;
+  color: var(--silver);
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.modal-close:hover { color: var(--gold); }
+.modal-icon {
+  color: var(--gold);
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+.modal-title {
+  font-family: 'Cormorant', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 12px;
+  letter-spacing: 0.08em;
+}
+.modal-text {
+  color: var(--silver);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
 /* ── CURSOR ORO METÁLICO (desktop only) ──────────────────── */
 body {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='20' viewBox='0 0 14 20'%3E%3Cpath d='M0 0L0 14L4 10L7 17L9 16L6 9L11 9Z' fill='%23d4af37' stroke='%233d2800' stroke-width='0.8' stroke-linejoin='round'/%3E%3Cpath d='M1 1L1 11' stroke='%23fff5b0' stroke-width='0.6' stroke-linecap='round' opacity='0.8'/%3E%3C/svg%3E") 0 0, auto;
