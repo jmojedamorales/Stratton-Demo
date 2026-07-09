@@ -15,15 +15,6 @@
   color: #111111;
 }
 
-#sobre::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 140px;
-  background: linear-gradient(180deg, var(--black), transparent);
-  pointer-events: none;
-  z-index: 0;
-}
 
 .sobre-bg-accent {
   position: absolute;

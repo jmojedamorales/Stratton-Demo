@@ -21,7 +21,7 @@ footer {
 .footer-logo {
   font-family: 'Cormorant', serif;
   font-size: 1.4rem;
-  color: var(--white);
+  color: var(--black);
   margin-bottom: 4px;
 }
 .footer-tagline {
@@ -33,10 +33,9 @@ footer {
 }
 .footer-desc {
   font-size: 0.85rem;
-  color: var(--silver);
+  color: #555;
   line-height: 1.8;
   max-width: 300px;
-  opacity: 0.6;
 }
 
 /* ── SOCIAL LINKS ─────────────────────────────────────────── */
@@ -49,7 +48,7 @@ footer {
   width: 36px; height: 36px;
   border: 1px solid rgba(212,175,55,0.2);
   display: flex; align-items: center; justify-content: center;
-  color: var(--silver);
+  color: #555;
   text-decoration: none;
   font-size: 0.85rem;
   transition: all 0.3s;
@@ -71,16 +70,15 @@ footer {
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .footer-links a {
   font-size: 0.85rem;
-  color: var(--silver);
+  color: #555;
   text-decoration: none;
-  opacity: 0.6;
   transition: all 0.3s;
 }
 .footer-links a:hover { opacity: 1; color: var(--gold); }
 
 /* ── FOOTER BOTTOM BAR ────────────────────────────────────── */
 .footer-bottom {
-  border-top: 1px solid rgba(192,192,192,0.08);
+  border-top: 1px solid rgba(0,0,0,0.1);
   padding-top: 30px;
   display: flex;
   justify-content: space-between;
@@ -90,7 +88,7 @@ footer {
 }
 .footer-copy {
   font-size: 0.72rem;
-  color: rgba(192,192,192,0.35);
+  color: rgba(0,0,0,0.4);
   letter-spacing: 0.08em;
 }
 .footer-legal {
@@ -99,7 +97,7 @@ footer {
 }
 .footer-legal a {
   font-size: 0.72rem;
-  color: rgba(192,192,192,0.35);
+  color: rgba(0,0,0,0.4);
   text-decoration: none;
   letter-spacing: 0.05em;
   transition: color 0.3s;

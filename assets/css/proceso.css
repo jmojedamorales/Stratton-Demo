@@ -25,12 +25,19 @@
 }
 .proceso-item:hover { background: rgba(212,175,55,0.03); }
 
-.proceso-num {
-  font-family: 'Cormorant', serif;
-  font-size: 4rem;
-  color: rgba(212,175,55,0.15);
-  line-height: 1;
-  margin-bottom: 16px;
+.proceso-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 20px;
+  color: rgba(212,175,55,0.45);
+  transition: color 0.4s;
+}
+.proceso-item:hover .proceso-icon {
+  color: rgba(212,175,55,0.85);
+}
+.proceso-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .proceso-title {
