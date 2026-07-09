@@ -6,23 +6,28 @@
 
 /* ── FOOTER ───────────────────────────────────────────────── */
 footer {
-  border-top: 1px solid rgba(212,175,55,0.1);
-  padding: 60px 0 40px;
+  padding: 20px 0 20px;
 }
 
 .footer-inner {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   gap: 60px;
-  margin-bottom: 50px;
+  margin-bottom: 16px;
 }
 
 /* ── FOOTER BRAND ─────────────────────────────────────────── */
 .footer-logo {
-  font-family: 'Cormorant', serif;
-  font-size: 1.4rem;
-  color: var(--black);
+  display: inline-block;
   margin-bottom: 4px;
+  background: #000;
+}
+
+.footer-logo img {
+  height: 90px;
+  width: auto;
+  display: block;
+  mix-blend-mode: screen;
 }
 .footer-tagline {
   font-size: 0.62rem;
@@ -33,7 +38,7 @@ footer {
 }
 .footer-desc {
   font-size: 0.85rem;
-  color: #555;
+  color: #333;
   line-height: 1.8;
   max-width: 300px;
 }
@@ -48,7 +53,7 @@ footer {
   width: 36px; height: 36px;
   border: 1px solid rgba(212,175,55,0.2);
   display: flex; align-items: center; justify-content: center;
-  color: #555;
+  color: #333;
   text-decoration: none;
   font-size: 0.85rem;
   transition: all 0.3s;
@@ -70,7 +75,7 @@ footer {
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .footer-links a {
   font-size: 0.85rem;
-  color: #555;
+  color: #333;
   text-decoration: none;
   transition: all 0.3s;
 }
@@ -79,7 +84,8 @@ footer {
 /* ── FOOTER BOTTOM BAR ────────────────────────────────────── */
 .footer-bottom {
   border-top: 1px solid rgba(0,0,0,0.1);
-  padding-top: 30px;
+  padding-top: 16px;
+  margin-top: -24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -88,7 +94,7 @@ footer {
 }
 .footer-copy {
   font-size: 0.72rem;
-  color: rgba(0,0,0,0.4);
+  color: #555;
   letter-spacing: 0.08em;
 }
 .footer-legal {
